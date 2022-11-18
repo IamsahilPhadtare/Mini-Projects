@@ -24,15 +24,24 @@ int checkwin(){
 		return -1;
 }
 void board(){
+system("cls");
 
 cout<<"    TIC TAC TOE  "<<endl;
 cout<<"   PLAYER 1: X   PLAYER 2: O  "<<endl;
-cout<<"  "<<square[7]<<" | "<<"  "<<square[8]<<" | "<<square[9]<<endl;
-cout<<" ----------------"<<endl;
-cout<<"  "<<square[4]<<" | "<<"  "<<square[5]<<" | "<<square[6]<<endl;
-cout<<" ----------------"<<endl;
-cout<<"  "<<square[1]<<" | "<<"  "<<square[2]<<" | "<<square[3]<<endl;
+cout << "     |     |     " << endl;
+cout << "  " << square[1] << "  |  " << square[2] << "  |  " << square[3] << endl;
 
+cout << "_____|_____|_____" << endl;
+cout << "     |     |     " << endl;
+
+cout << "  " << square[4] << "  |  " << square[5] << "  |  " << square[6] << endl;
+
+cout << "_____|_____|_____" << endl;
+cout << "     |     |     " << endl;
+
+cout << "  " << square[7] << "  |  " << square[8] << "  |  " << square[9] << endl;
+
+cout << "     |     |     " << endl << endl;
 }
 int main(){
 	int ply=1,i,choice;
