@@ -86,8 +86,7 @@ int main(){
 		else{
 		cout<<"Invalid Move"<<endl;
 		ply--;
-		cin.ignore();
-		cin.get();
+		
 		}
 		i=checkwin();
 		ply++;
@@ -98,8 +97,7 @@ int main(){
 			cout<<"Player"<<--ply<<"Won"<<endl;
 		else
 			cout<<"Draw"<<endl;
-		cin.ignore();
-		cin.get();
+		
 		
 		
 
