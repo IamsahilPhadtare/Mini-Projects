@@ -94,7 +94,7 @@ int main(){
 		while(i==-1);
 		board();
 		if(i==1)
-			cout<<"Player"<<--ply<<"Won"<<endl;
+			cout<<"Player "<<--ply<<" has Won!!!"<<endl;
 		else
 			cout<<"Draw"<<endl;
 		
