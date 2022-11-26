@@ -2,6 +2,12 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+struct queue
+{
+ int arr[50];
+ int front=-1;
+ int rear=-1;   
+}q;
 
 int number;
 
@@ -51,11 +57,21 @@ void display(){
             cout<<"\t\t\t\tComputer : Paper"<<endl;
         }
 }
+void scoreboard(int r,int count)
+{
+    if(r==-1)
+        string m=
+    q.arr[++q.rear]=;
+   
+    
+        
+}
 int main(){
 
     char computer;
     char player;
     char playmore;
+    int count=0;
     cout << "\t\t\t\t";
     for(int i = 0; i < 60; i++){
         cout << "-";
@@ -131,6 +147,8 @@ int main(){
             cout << "\t\t\t\t";
             cout << "Woah! That's Tie!" << endl;
         }
+        count++;
+        scoreboard(result,count);
         cout << "\t\t\t\t";
         cout << "Do you want to Play Again?(y/n)" << endl;
         cout << "\t\t\t\t";
