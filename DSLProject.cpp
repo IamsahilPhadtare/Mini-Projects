@@ -28,32 +28,27 @@ int rule(char p, char c){
     else if (p == 'p' && c == 's'){
         return -1;
     }
-    // else if((p != 'r') || (p != 's') || (p != 'p')) {
-    //     cout<<"Invalid"<<endl;
-    //     return 0;
-    // }
 }
 void display(){
 
     char computer;
-    // number = rand() % 100;
         if (number < 33)
         {
             computer = 'r';
-            cout<<"\t\t\t\t";
-            cout<<"Computer : Rock"<<endl;
+            
+            cout<<"\t\t\t\tComputer : Rock"<<endl;
         }
         else if (number > 66)
         {
             computer = 's';
-            cout<<"\t\t\t\t";
-            cout<<"Computer : Scissor"<<endl;
+            
+            cout<<"\t\t\t\tComputer : Scissor"<<endl;
         }
         else
         {
             computer = 'p';
-            cout<<"\t\t\t\t";
-            cout<<"Computer : Paper"<<endl;
+           
+            cout<<"\t\t\t\tComputer : Paper"<<endl;
         }
 }
 int main(){
@@ -74,7 +69,7 @@ int main(){
     }
     cout << endl;
     cout << "\t\t\t\t";
-    cout << "\t Preference : " << endl;
+    cout << "\t Reference : " << endl;
     cout << "\t\t\t\t";
     cout << "\t\t r : Rock" << endl << "\t\t\t\t" << "\t\t p : Paper" << endl << "\t\t\t\t" << "\t\t s : Scissor" << endl << "\t\t\t\t"<< endl;
     cout << "\t\t\t\t";
@@ -82,13 +77,12 @@ int main(){
         cout << "-";
     }
     cout << endl;
+
     do{
         number = 0;
-        srand(time(0));        // initialized time to 0
-        number = rand() % 100; // will choose a number in range 0 - 99
-        // r - for rock
-        // p - for paper
-        // s - for scissors
+        srand(time(0));        
+        number = rand() % 100; 
+        
         if (number < 33)
         {
             computer = 'r';
@@ -101,25 +95,27 @@ int main(){
         {
             computer = 'p';
         }
-        // cout << "Note: \"r\" for \"Rock\", \"p\" for \"Paper\", \"s\" for \"Scissor\"." << endl;
-         cout << "\t\t\t\t";
-        cout << "Enter your choice: ";
-        cin >> player;
-        // do
-        // {
-       
-        // cout<<"\t\t\t\t"<<player<<" is not a valid entry. Try Again !!!"<<endl;
-        // cout<<"\t\t\t\t"<<endl;
-        // for(int i = 0; i < 60; i++){
-        // cout << "-";
-        // }
-        // }
-        // while ((player != 'r') || (player != 's') || (player != 'p'));
-       
 
-        int result = rule(player, computer);
+        cout << "\t\t\t\tEnter your choice :  ";
+        cin>>player;
+        cout<<"\t\t\t\t";
+        for(int i = 0; i < 60; i++){
+        cout << "-";}
+        cout<<endl;
         
-
+        while ((player != 'r') && (player != 's') && (player != 'p'))
+        {
+        cout<<"\t\t\t\t"<<player<<" is not a valid entry. Try Again !!!"<<endl;
+        cout<<"\t\t\t\t"<<endl;
+        cout<<"\t\t\t\tEnter your choice : ";
+        cin>>player;
+        cout<<"\t\t\t\t";
+        for(int i = 0; i < 60; i++){
+        cout << "-";}
+        }
+        cout<<endl;
+        
+        int result = rule(player, computer);
         if(result == 1){
             display();
             cout << "\t\t\t\t";
@@ -140,7 +136,7 @@ int main(){
         cout << "\t\t\t\t";
         cin >> playmore;
         cout << "\t\t\t\t";
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 60; i++){
             cout << "-";
         }
         cout << endl;
