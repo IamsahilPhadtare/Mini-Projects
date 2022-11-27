@@ -1,7 +1,7 @@
 # Mini-Projects
 
-Add DSL proj and CG project too 
-here
+<br Add DSL proj and CG project too />
+<li> here </li
 
 
 1} OOP mini project:
@@ -17,5 +17,5 @@ here
 ###Team Members:
       -OOP { Disha Patil, Eesha Patel, Mann Pathak, Monik Ramjiyani, Sahil Phadtare, Tanvi Rainak}
       -DSL { Disha Patil, Mann Pathak, Monik Ramjiyani, Sahil Phadtare}
-      -CG { Unclear}
+      -CG { Disha Patil, Eesha Patel, Mann Pathak, Monik Ramjiyani, Sahil Phadtare, Tanvi Rainak}
      
