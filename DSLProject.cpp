@@ -35,6 +35,7 @@ int rule(string p, string c){
     else if (p == "p" && c == "s"){
         return -1;
     }
+    return 0;
 }
 void display(){
 
@@ -48,13 +49,11 @@ void display(){
         else if (number > 66)
         {
             computer = 's';
-            
             cout<<"\t\t\t\tComputer : Scissor"<<endl;
         }
         else
         {
             computer = 'p';
-           
             cout<<"\t\t\t\tComputer : Paper"<<endl;
         }
 }
@@ -63,7 +62,7 @@ struct LL* create_game(struct LL *head, int r,int count, string playr, string co
     struct LL *p, *newnode, *x;
     x=head;
     newnode=new(struct LL);
-    string temp="Game "+to_string(count);
+    string temp="\t\tGame "+to_string(count);
     newnode->gameno=temp;
     temp="";
     if(r==-1)
@@ -84,11 +83,11 @@ struct LL* create_game(struct LL *head, int r,int count, string playr, string co
     else if(r==1)
     {
         if(playr=="r")
-            temp="Player won by rock over "+comp;
+            temp="You won by rock over "+comp;
         else if(playr=="p")
-            temp="Player won by paper over "+comp;
+            temp="You won by paper over "+comp;
         else
-            temp="Player won by scissor over "+comp;
+            temp="You won by scissor over "+comp;
     }
     else
     {
@@ -118,21 +117,17 @@ void showboard(struct LL* h)
         p=p->next;
     }
 }
-int main(){
-    head=NULL;
-    string computer;
-    string player;
-    char playmore;
-    int count=0;
+void reference(){
+    system("cls");
     cout << "\t\t\t\t";
-    for(int i = 0; i < 60; i++){
+    for(int i = 0; i < 100; i++){
         cout << "-";
     }
     cout << endl;
     cout << "\t\t\t\t";
     cout << "\t \e[1m Welcome to Rock, Paper and Scissors Game \e[0m" << endl;
     cout << "\t\t\t\t";
-    for(int i = 0; i < 60; i++){
+    for(int i = 0; i < 100; i++){
         cout << "-";
     }
     cout << endl;
@@ -141,12 +136,32 @@ int main(){
     cout << "\t\t\t\t";
     cout << "\t\t r : Rock" << endl << "\t\t\t\t" << "\t\t p : Paper" << endl << "\t\t\t\t" << "\t\t s : Scissor" << endl << "\t\t\t\t"<< endl;
     cout << "\t\t\t\t";
-    for(int i = 0; i < 60; i++){
+    for(int i = 0; i < 100; i++){
         cout << "-";
     }
     cout << endl;
+}
+int main(){
+    head=NULL;
+    string computer;
+    string player;
+    char playmore;
+    int count=0;
+    cout << "\t\t\t\t";
+    for(int i = 0; i < 100; i++){
+        cout << "-";
+    }
+    cout << endl;
+    cout << "\t\t\t\t";
+    cout << "\t \e[1m Welcome to Rock, Paper and Scissors Game \e[0m" << endl;
+    cout << "\t\t\t\t";
+    for(int i = 0; i < 100; i++){
+        cout << "-";
+    }
+   
 
     do{
+        reference();
         char scr;
         number = 0;
         srand(time(0));        
@@ -168,7 +183,7 @@ int main(){
         cout << "\t\t\t\tEnter your choice :  ";
         cin>>player;
         cout<<"\t\t\t\t";
-        for(int i = 0; i < 60; i++){
+        for(int i = 0; i < 100; i++){
         cout << "-";}
         cout<<endl;
         
@@ -179,7 +194,7 @@ int main(){
         cout<<"\t\t\t\tEnter your choice : ";
         cin>>player;
         cout<<"\t\t\t\t";
-        for(int i = 0; i < 60; i++){
+        for(int i = 0; i < 100; i++){
         cout << "-";}
         }
         cout<<endl;
@@ -208,24 +223,24 @@ int main(){
         cin >> playmore;
         if(playmore=='n'){
         cout << "\t\t\t\t";
-        cout<<"\n\t\t\t\tShow Scoreboard ? (Type 's' or press any other button to exit): ";
-       // cout << "\t\t\t\t";
+        cout<<"\n\t\t\t\tShow Scoreboard ? (Type 's' to see the Scoreboard and press any other button to exit): ";
+       
         cin>>scr;
         if(scr=='s'||scr=='S')
         {
             showboard(head);
             cout<<"\n\n";
-            cout<<"\n\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
+            cout<<"\t\t\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
         }
         else{
-            cout<<"\n\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
+            cout<<"\t\t\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
             cout<<endl;
             continue;
              
         }
         }
         cout<<"\t\t\t\t";
-        for(int i = 0; i < 60; i++){
+        for(int i = 0; i < 100; i++){
             
             cout << "-";
         }
