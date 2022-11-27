@@ -1,37 +1,44 @@
 #include <iostream>
+#include<conio.h>
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+struct LL
+{
+ string gameno;
+ string res;
+ struct LL *next;
+}*head,*list;
 
 int number;
 
-int rule(char p, char c){
+int rule(string p, string c){
     if (p == c){
         return 0;
     }
 
-    if (p == 'r' && c == 'p'){
+    if (p == "r" && c == "p"){
         return -1;
     }
-    else if (p == 's' && c == 'p'){
+    else if (p == "s" && c == "p"){
         return 1;
     }
-    else if (p == 'p' && c == 'r'){
+    else if (p == "p" && c == "r"){
         return 1;
     }
-    else if (p == 's' && c == 'r'){
+    else if (p == "s" && c == "r"){
         return -1;
     }
-    else if (p == 'r' && c == 's'){
+    else if (p == "r" && c == "s"){
         return 1;
     }
-    else if (p == 'p' && c == 's'){
+    else if (p == "p" && c == "s"){
         return -1;
     }
 }
 void display(){
 
-    char computer;
+        char computer;
         if (number < 33)
         {
             computer = 'r';
@@ -51,11 +58,72 @@ void display(){
             cout<<"\t\t\t\tComputer : Paper"<<endl;
         }
 }
+struct LL* create_game(struct LL *head, int r,int count, string playr, string comp)
+{
+    struct LL *p, *newnode, *x;
+    x=head;
+    newnode=new(struct LL);
+    string temp="Game "+to_string(count);
+    newnode->gameno=temp;
+    temp="";
+    if(r==-1)
+    {
+        if(comp=="r"){
+            // cout<<"\t\t\t\t";
+            temp="Computer won by rock over "+playr;
+        }
+        else if(comp=="p"){
+            // cout<<"\t\t\t\t";
+            temp="Computer won by paper over "+playr;
+        }
+        else{
+            // cout<<"\t\t\t\t";
+            temp="Computer won by scissor over "+playr;
+        }
+    }
+    else if(r==1)
+    {
+        if(playr=="r")
+            temp="Player won by rock over "+comp;
+        else if(playr=="p")
+            temp="Player won by paper over "+comp;
+        else
+            temp="Player won by scissor over "+comp;
+    }
+    else
+    {
+        temp="It was a Tie!";
+    }
+    newnode->res=temp;
+    if(head==NULL)
+    {
+        head=newnode;
+        //p=head;
+    }
+    else
+    {
+        while(x->next!=NULL)
+            x=x->next;
+        x->next=newnode;
+    }
+    return head;
+}
+void showboard(struct LL* h)
+{
+    struct LL *p;
+    p=h;
+    while(p!=NULL)
+    {
+        cout<<"\n\t\t\t"<<p->gameno<<": \t"<<p->res;
+        p=p->next;
+    }
+}
 int main(){
-
-    char computer;
-    char player;
+    head=NULL;
+    string computer;
+    string player;
     char playmore;
+    int count=0;
     cout << "\t\t\t\t";
     for(int i = 0; i < 60; i++){
         cout << "-";
@@ -79,21 +147,22 @@ int main(){
     cout << endl;
 
     do{
+        char scr;
         number = 0;
         srand(time(0));        
         number = rand() % 100; 
         
         if (number < 33)
         {
-            computer = 'r';
+            computer = "r";
         }
         else if (number > 66)
         {
-            computer = 's';
+            computer = "s";
         }
         else
         {
-            computer = 'p';
+            computer = "p";
         }
 
         cout << "\t\t\t\tEnter your choice :  ";
@@ -103,7 +172,7 @@ int main(){
         cout << "-";}
         cout<<endl;
         
-        while ((player != 'r') && (player != 's') && (player != 'p'))
+        while ((player != "r") && (player != "s") && (player != "p"))
         {
         cout<<"\t\t\t\t"<<player<<" is not a valid entry. Try Again !!!"<<endl;
         cout<<"\t\t\t\t"<<endl;
@@ -131,16 +200,38 @@ int main(){
             cout << "\t\t\t\t";
             cout << "Woah! That's Tie!" << endl;
         }
-        cout << "\t\t\t\t";
+        count++;
+        head=create_game(head,result,count,player,computer);
+        cout << "\n\n\t\t\t\t";
         cout << "Do you want to Play Again?(y/n)" << endl;
         cout << "\t\t\t\t";
         cin >> playmore;
+        if(playmore=='n'){
         cout << "\t\t\t\t";
+        cout<<"\n\t\t\t\tShow Scoreboard ? (Type 's' or press any other button to exit): ";
+       // cout << "\t\t\t\t";
+        cin>>scr;
+        if(scr=='s'||scr=='S')
+        {
+            showboard(head);
+            cout<<"\n\n";
+            cout<<"\n\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
+        }
+        else{
+            cout<<"\n\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
+            cout<<endl;
+            continue;
+             
+        }
+        }
+        cout<<"\t\t\t\t";
         for(int i = 0; i < 60; i++){
+            
             cout << "-";
         }
         cout << endl;
-    }while(playmore == 'y');
+
+    }while(playmore == 'y' || playmore=='Y');
 
     return 0;
 }
