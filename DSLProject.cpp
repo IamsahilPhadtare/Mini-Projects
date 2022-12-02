@@ -65,29 +65,42 @@ struct LL* create_game(struct LL *head, int r,int count, string playr, string co
     string temp="\t\tGame "+to_string(count);
     newnode->gameno=temp;
     temp="";
+    string temp1, temp2;
+    if(playr=="s")
+        temp1="scissor";
+    if(playr=="r")
+        temp1="rock";
+    if(playr=="p")
+        temp1="paper";
+    if(comp=="s")
+        temp2="scissor";
+    if(comp=="r")
+        temp2="rock";
+    if(comp=="p")
+        temp2="paper";
     if(r==-1)
     {
         if(comp=="r"){
             // cout<<"\t\t\t\t";
-            temp="Computer won by rock over "+playr;
+            temp="Computer won by rock over "+temp1;
         }
         else if(comp=="p"){
             // cout<<"\t\t\t\t";
-            temp="Computer won by paper over "+playr;
+            temp="Computer won by paper over "+temp1;
         }
         else{
             // cout<<"\t\t\t\t";
-            temp="Computer won by scissor over "+playr;
+            temp="Computer won by scissor over "+temp1;
         }
     }
     else if(r==1)
     {
         if(playr=="r")
-            temp="You won by rock over "+comp;
+            temp="You won by rock over "+temp2;
         else if(playr=="p")
-            temp="You won by paper over "+comp;
+            temp="You won by paper over "+temp2;
         else
-            temp="You won by scissor over "+comp;
+            temp="You won by scissor over "+temp2;
     }
     else
     {
@@ -118,7 +131,7 @@ void showboard(struct LL* h)
     }
 }
 void reference(){
-    system("cls");
+    system("clear");
     cout << "\t\t\t\t";
     for(int i = 0; i < 100; i++){
         cout << "-";
@@ -147,7 +160,7 @@ int main(){
     string player;
     char playmore;
     int count=0;
-    cout << "\t\t\t\t";
+    /*cout << "\t\t\t\t";
     for(int i = 0; i < 100; i++){
         cout << "-";
     }
@@ -157,9 +170,8 @@ int main(){
     cout << "\t\t\t\t";
     for(int i = 0; i < 100; i++){
         cout << "-";
-    }
-   
-
+    }*/
+ 
     do{
         reference();
         char scr;
@@ -224,10 +236,10 @@ int main(){
         if(playmore=='n'){
         cout << "\t\t\t\t";
         cout<<"\n\t\t\t\tShow Scoreboard ? (Type 's' to see the Scoreboard and press any other button to exit): ";
-       
         cin>>scr;
         if(scr=='s'||scr=='S')
         {
+            system("clear");
             showboard(head);
             cout<<"\n\n";
             cout<<"\t\t\t\t\t\t\t\e[1m END OF GAME \e[0m"<<endl;
