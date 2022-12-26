@@ -20,7 +20,7 @@ Project Presented!!!<br/><br/><br/>
 -Project is near completion. ( X-O Game) 
 -Solve any bug if faced any. 
 ```
- </details>
+ 
  <details><summary>Members</summary>
 <p>
 
